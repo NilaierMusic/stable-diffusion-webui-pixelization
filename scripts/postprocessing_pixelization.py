@@ -158,9 +158,9 @@ def to_image(tensor, pixel_size, upscale_after):
     img = (np.transpose(img, (1, 2, 0)) + 1) / 2.0 * 255.0
     img = img.astype(np.uint8)
     img = Image.fromarray(img)
-    img = img.resize((img.size[0]//4, img.size[1]//4), resample=Image.Resampling.NEAREST)
+    img = img.resize((img.size[0]//4, img.size[1]//4), resample=Image.NEAREST)
     if upscale_after:
-        img = img.resize((img.size[0]*pixel_size, img.size[1]*pixel_size), resample=Image.Resampling.NEAREST)
+        img = img.resize((img.size[0]*pixel_size, img.size[1]*pixel_size), resample=Image.NEAREST)
 
     return img
 
